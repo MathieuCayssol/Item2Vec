@@ -1,7 +1,7 @@
 
 # Item2Vec Wrapped
 
-Gensim 4.x
+Gensim 4.x and sklearn
 1. Introduction
 2. General informations
 3. Methods Description
