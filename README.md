@@ -2,6 +2,11 @@
 # Item2Vec Wrapped
 
 Gensim 4.x
+1. Introduction
+2. General informations
+3. Methods Description
+4. GridSearch and BayesSearch Usage
+5. BayesSearch Example
 
 # 1. Introduction
 
@@ -180,6 +185,14 @@ clf.best_score_
 # 5. BayesSearch Example
 
 ```
+!pip install scikit-optimize
+
+from skopt.space import Integer
+from skopt.space import Real
+from skopt.space import Categorical
+from skopt.utils import use_named_args
+from skopt import BayesSearchCV
+
 search_space = list()
 search_space.append(Integer(3, 100, name='epochs', prior='log-uniform', base=2))
 search_space.append(Integer(10, 500, name='vector_size', prior='log-uniform', base=2))
