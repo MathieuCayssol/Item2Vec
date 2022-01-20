@@ -1,6 +1,7 @@
 
 # Item2Vec Wrapped
 
+Gensim 4.x
 
 # 1. Introduction
 
