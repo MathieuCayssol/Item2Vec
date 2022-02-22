@@ -51,13 +51,13 @@ The train/test split is managed within the class. It is not necessary to split t
 **3.1 Instanciation and init parameters**
 
 Instanciation :
-```
+```python
 Item2VecWrapped(alpha=0.025, cbow_mean=1, epochs=5,hs=0, min_alpha=0.0001, min_count=1, negative=5, ns_exponent=-0.5, 
 sample=0.001, seed=1, sg=0, vector_size=100, window=3, shrink_windows=True,topK=10, split_strategy="timeseries")
 ```
 
 Word2Vec default Parameters (Gensim 4.x)
-```
+```python
 alpha=0.025, cbow_mean=1, epochs=5,hs=0, min_alpha=0.0001, min_count=1, negative=5, 
 ns_exponent=-0.5, sample=0.001, seed=1, sg=0, vector_size=100, window=3, shrink_windows=True,
 ```
@@ -82,7 +82,7 @@ split_strategy : "timeseries" or "train_test_split"
 
 **3.2 Fit method**
 
-```
+```python
 fit(X)
 ```
 - Getting X_train data (depending on splitting strategy) to train the gensim Word2Vec model
@@ -90,7 +90,7 @@ fit(X)
 
 **3.3 Predict method**
 
-```
+```python
 predict(X)
 ```
 
@@ -102,7 +102,7 @@ predict(X)
 
 **3.4 Score method (not using it outside the classe)**
 
-```
+```python
 score(X)
 ```
 
@@ -118,7 +118,7 @@ Evaluate performance on Next Event Prediction using Precision@K
 **3.5 Score_Precision_at_K method**
 
 
-```
+```python
 score_Precision_at_K(X_test, Y_test)
 ```
 Evaluate performance on Next Event Prediction using Precision@K
@@ -133,7 +133,7 @@ Evaluate performance on Next Event Prediction using Precision@K
 
 **3.6 Get_vocabulary method**
 
-```
+```python
 get_vocabulary()
 ```
 ```Return``` : list of vocabulary after the training.
@@ -142,7 +142,7 @@ get_vocabulary()
 
 **3.7 Get_index_word method**
 
-```
+```python
 get_index_word(word)
 ```
 ```Return``` : Index of the given word
@@ -150,18 +150,18 @@ get_index_word(word)
 # 4. GridSearch and BayesSearch Usage
 
 Model instantation
-```
+```python
 my_model = Item2VecWrapped()
 ```
 
 Hyperparameters definition
-```
+```python
 parameters = {'ns_exponent': [1, 0.5, -0.5, -1], 'alpha': [0.1, 0.3, 0.6, 0.9]}
 ```
 
 Define Train and test indices for splitting. 
 !! Test and train indices must be the same !! The split is managed internally
-```
+```python
 train_indices = [i for i in range(len(X))]
 test_indices = [i for i in range(len(X))]
 
@@ -169,12 +169,12 @@ cv = [(train_indices, test_indices)]
 ```
 
 Instantiate GridSearchCV
-```
+```python
 clf = GridSearchCV(my_model,parameters, cv=cv)
 ```
 
 Fit the model and getting best parameters and best scores
-```
+```python
 clf.fit(X)
 
 clf.best_params_
@@ -184,7 +184,7 @@ clf.best_score_
 
 # 5. BayesSearch Example
 
-```
+```python
 !pip install scikit-optimize
 
 from skopt.space import Integer
